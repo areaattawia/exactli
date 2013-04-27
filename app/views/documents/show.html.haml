@@ -1,16 +1,7 @@
 .index-container
   = render 'layouts/in_app_header'
   %p#notice= notice
-  %h3 Document Information:
-  %p
-    %b Creator:
-    = User.find_by_id(@document.user_id).name
-  %p
-    %b Project name:
-    = @document.project_name
-  %p
-    %b Document name:
-    = @document.document_name
+  %h3.dheading Design Versions:
   %p
     %b Access link:
     = @document.access_link
