@@ -1,12 +1,12 @@
 .index-container
   = render 'layouts/in_app_header'
   %h3 
-    Your Document Dashboard,
+    Active Designs for
     =@user.name.split.first
 
-  %p
+  -#%p
     display by (project, date)
-  %p
+  -#%p
     sort date by (newest, oldest)
   %ul.document-list
     - @documents.each do |document|
