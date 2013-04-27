@@ -1,9 +1,10 @@
 .index-container
   = render 'layouts/in_app_header'
-  %h3 
+  %h3.splash-main 
     Active Designs for
     =@user.name.split.first
-
+      %p.hint
+      (designs currently in review)
   -#%p
     display by (project, date)
   -#%p
