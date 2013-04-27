@@ -1,24 +1,24 @@
 .index-container
   = render 'layouts/in_app_header'
   .index-graph
-      %h3.dheading
-        Active Designs for
-        =@user.name.split.first
-      %p.subd.splash-main
-        (designs currently in review)
-      %ul.document-list.splash-main
-        - @documents.each do |document|
-          %li.document-li
-            %p.document-information
-              Project:
-              %br
-              = truncate(document.project_name, :length => 20)
-            %p.document-information
-              Document:
-              %br
-              = truncate(document.document_name, :length => 20)
-            = link_to (image_tag "Folder.png", class: "folder-pic"), document_path(document.id)
-            = link_to (image_tag "Settings.png", class: "settings-pic"), edit_document_path(document.id)
+    %h3.dheading
+      Active Designs for
+      =@user.name.split.first
+    %p.subd.splash-main
+      (designs currently in review)
+    %ul.document-list.splash-main
+      - @documents.each do |document|
+        %li.document-li
+          %p.document-information
+            Project:
+            %br
+            = truncate(document.project_name, :length => 20)
+          %p.document-information
+            Document:
+            %br
+            = truncate(document.document_name, :length => 20)
+          = link_to (image_tag "Folder.png", class: "folder-pic"), document_path(document.id)
+          = link_to (image_tag "Settings.png", class: "settings-pic"), edit_document_path(document.id)
   %hr.index-hr
   = link_to "New Document", new_document_path
   |
