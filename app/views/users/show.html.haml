@@ -6,11 +6,7 @@
       =@user.name.split.first
     %p.subd.splash-main
       (designs currently in review)
-    -#%p
-    display by (project, date)
-    -#%p
-    sort date by (newest, oldest)
-    %ul.document-list
+    %ul.document-list.splash-main
       - @documents.each do |document|
         %li.document-li
           %p.document-information
