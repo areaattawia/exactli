@@ -4,7 +4,7 @@
     %h3.dheading
       Active Designs -
       =@user.name.split.first
-    %p.subd.splash-main
+    %p.subd
       (designs currently in review)
     %ul.document-list
       - @documents.each do |document|
@@ -20,7 +20,7 @@
           = link_to (image_tag "Folder.png", class: "folder-pic"), document_path(document.id)
           = link_to (image_tag "Settings.png", class: "settings-pic"), edit_document_path(document.id)
   %hr.index-hr
-  .splash-btn
+  .btn
     = link_to "New Design", new_document_path
     |
     = link_to 'Archive Design', archive_delete_path(current_user.id)
