@@ -1,27 +1,23 @@
 .index-container
   = render 'layouts/in_app_header'
   .index-graph
-    %h3.dheading
+    .dheading
       Active Designs -
       =@user.name.split.first
-    %p.subd
+    %p.subd.splash-main
       (designs currently in review)
     %ul.document-list
       - @documents.each do |document|
         %li.document-li
           %p.document-information
-            Project:
             %br
             = truncate(document.project_name, :length => 20)
           %p.document-information
-            Design:
             %br
             = truncate(document.document_name, :length => 20)
           = link_to (image_tag "Folder.png", class: "folder-pic"), document_path(document.id)
           = link_to (image_tag "Settings.png", class: "settings-pic"), edit_document_path(document.id)
   %hr.index-hr
-    .btn
       = link_to "New Design", new_document_path
       |
-    .btn2
       = link_to 'Archive Design', archive_delete_path(current_user.id)
