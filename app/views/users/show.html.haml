@@ -6,7 +6,7 @@
       =@user.name.split.first
     %p.subd.splash-main
       (designs currently in review)
-    %ul.document-list.splash-main
+    %ul.document-list
       - @documents.each do |document|
         %li.document-li
           %p.document-information
@@ -14,12 +14,13 @@
             %br
             = truncate(document.project_name, :length => 20)
           %p.document-information
-            Document:
+            Design:
             %br
             = truncate(document.document_name, :length => 20)
           = link_to (image_tag "Folder.png", class: "folder-pic"), document_path(document.id)
           = link_to (image_tag "Settings.png", class: "settings-pic"), edit_document_path(document.id)
   %hr.index-hr
-  = link_to "New Design", new_document_path
-  |
-  = link_to 'Archive Design', archive_delete_path(current_user.id)
+  .splash-btn
+    = link_to "New Design", new_document_path
+    |
+    = link_to 'Archive Design', archive_delete_path(current_user.id)
