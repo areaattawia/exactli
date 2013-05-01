@@ -13,7 +13,7 @@
             = truncate(document.project_name, :length => 20)
           %p.document-information
             = truncate(document.document_name, :length => 20)
-          = link_to (image_tag "Folder.png", class: "folder-pic"), document_path(document.id)
+          = link_to (image_tag document_version.file_url(:thumb), class: "annotate-thumb-pic"), annotation_path(document_version.id)
           = link_to (image_tag "Settings.png", class: "settings-pic"), edit_document_path(document.id)
   %hr.index-hr
     = link_to 'New Design', new_document_path
