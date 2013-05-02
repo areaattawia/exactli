@@ -2,7 +2,7 @@
   = render 'layouts/in_app_header'
   %p#notice= notice
   %h3.dheading Design Versions:
-  %p
+  %p.dheading
     %b Design Access Link:
     = @document.access_link
   
@@ -19,7 +19,7 @@
         %br
         = link_to (image_tag "Settings.png", class: "settings-pic"), edit_document_version_path(document_version.id)
 
-  %p.glink
+  %p.flink
     -if @documentversions.count == 0
       = link_to "Upload first version", new_document_version_url(:document_id => @document.id)
     -else
@@ -27,9 +27,7 @@
 
   %hr.index-hr
   .footer-nav
-    .flink
+    .glink
       = link_to 'Edit Document', edit_document_path(@document)
-      \|
       = link_to 'Back to Dashbaord', user_path(current_user.id)
-      \|
       = link_to 'Delete Version', archive_delete_path(current_user.id)
