@@ -18,6 +18,6 @@
   %hr.index-hr
     = link_to 'New Design', new_document_path
     |
-    = link_to 'Archive Design', class: "btn2" archive_delete_path(current_user.id)
+    = link_to ('Archive Design', class: "btn2"), archive_delete_path(current_user.id)
   %br
   %p
