@@ -15,7 +15,7 @@
           = truncate(document.document_name, :length => 20)
         = link_to (image_tag "Folder.png", class: "folder-pic"), document_path(document.id)
         = link_to (image_tag "Settings.png", class: "settings-pic"), edit_document_path(document.id)
-  .index-hr
+  %hr.index-hr
   %p
   .flink
     = link_to 'Create New Design', new_document_path
