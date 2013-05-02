@@ -55,7 +55,7 @@
 
   <div class="tool-bar">
     <h3 class="export-links">
-      <button> 
+      <button class="flink"> 
         <%= link_to "Export Comments", export_path(@document_version_id, format: "xls") %>
       </button>
     </h3>
@@ -63,8 +63,8 @@
 
   <hr class="index-hr">
   
-  <div class="footer-nav">
-    <%= link_to 'Back to Document Versions', document_path(@document.id) %>
+  <div class="footer-nav glink">
+    <%= link_to 'Back to Design Versions', document_path(@document.id) %>
     |
     <%= link_to 'Back to Dashbaord', user_path(current_user.id) %>
   </div>
