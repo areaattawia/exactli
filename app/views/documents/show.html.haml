@@ -3,39 +3,33 @@
   %p#notice= notice
   %h3.dheading Design Versions:
   %p
-    %b Access link:
+    %b Design Access Link:
     = @document.access_link
-  %h3 Document Versions:
   
   %ul.document-list.clearfix
     - @documentversions.each do |document_version|
       %li.document-li
         %p.document-information
-          Name: 
           %br
           = truncate(document_version.name, :length => 20)
         %p.document-information
-          Annotation Count:
+          Comments:
           = document_version.annotations.count
-        %p.document-information
-          Annotation Contributors:
-          %br
-          JD, EL, RV
-        =# image_tag "Folder.png", class: "folder-pic"
         = link_to (image_tag document_version.file_url(:thumb), class: "annotate-thumb-pic"), annotation_path(document_version.id)
         %br
         = link_to (image_tag "Settings.png", class: "settings-pic"), edit_document_version_path(document_version.id)
 
-  %p
+  %p.glink
     -if @documentversions.count == 0
-      = link_to "Add first version of document", new_document_version_url(:document_id => @document.id)
+      = link_to "Upload first version", new_document_version_url(:document_id => @document.id)
     -else
-      = link_to "Add new version of document", new_document_version_path(:document_id => @document.id)
+      = link_to "New Version", new_document_version_path(:document_id => @document.id)
 
   %hr.index-hr
   .footer-nav
-    = link_to 'Edit Document', edit_document_path(@document)
-    \|
-    = link_to 'Back to Dashbaord', user_path(current_user.id)
-    \|
-    = link_to 'Archive/Delete Documents and Versions', archive_delete_path(current_user.id)
+    .flink
+      = link_to 'Edit Document', edit_document_path(@document)
+      \|
+      = link_to 'Back to Dashbaord', user_path(current_user.id)
+      \|
+      = link_to 'Delete Version', archive_delete_path(current_user.id)
