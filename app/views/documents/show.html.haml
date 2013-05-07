@@ -24,11 +24,11 @@
       -if @documentversions.count == 0
         = link_to "Upload first version", new_document_version_url(:document_id => @document.id)
       -else
-        = link_to "New Vers ion", new_document_version_path(:document_id => @document.id)
+        = link_to "New Version", new_document_version_path(:document_id => @document.id)
 
-  %hr.index-hr
-  .footer-nav
-    .glink
-      = link_to 'Edit Document', edit_document_path(@document)
-      = link_to 'Back to Dashbaord', user_path(current_user.id)
-      = link_to 'Delete Version', archive_delete_path(current_user.id)
+    %hr.index-hr
+    .footer-nav
+      .glink
+        = link_to 'Edit Document', edit_document_path(@document)
+        = link_to 'Back to Dashbaord', user_path(current_user.id)
+        = link_to 'Delete Version', archive_delete_path(current_user.id)
