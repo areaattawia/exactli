@@ -1,36 +1,37 @@
 .index-container
   = render 'layouts/in_app_header'
-  %p#notice= notice
-  .index-graph
-    %h3.dheading Design Versions:
-    %p.hint.splash-main
-      %b Design Access Link:
-      = @document.access_link
+  .index-wrap
+    %p#notice= notice
+    .index-graph
+      %h3.dheading Design Versions:
+      %p.hint.splash-main
+        %b Design Access Link:
+        = @document.access_link
   
-    %ul.document-list.clearfix
-      - @documentversions.each do |document_version|
-        %li.document-li
-          %p.document-information
+      %ul.document-list.clearfix
+        - @documentversions.each do |document_version|
+          %li.document-li
+            %p.document-information
+              %br
+              = truncate(document_version.name, :length => 20)
+            %p.document-information
+              Comments:
+              = document_version.annotations.count
+            = link_to (image_tag document_version.file_url(:thumb), class: "annotate-thumb-pic"), annotation_path(document_version.id)
             %br
-            = truncate(document_version.name, :length => 20)
-          %p.document-information
-            Comments:
-            = document_version.annotations.count
-          = link_to (image_tag document_version.file_url(:thumb), class: "annotate-thumb-pic"), annotation_path(document_version.id)
-          %br
-          = link_to (image_tag "Settings.png", class: "settings-pic"), edit_document_version_path(document_version.id)
+            = link_to (image_tag "Settings.png", class: "settings-pic"), edit_document_version_path(document_version.id)
 
-    %p.flink
-      -if @documentversions.count == 0
-        = link_to "Upload first version", new_document_version_url(:document_id => @document.id)
-      -else
-        = link_to "New Version", new_document_version_path(:document_id => @document.id)
+      %p.flink
+        -if @documentversions.count == 0
+          = link_to "Upload first version", new_document_version_url(:document_id => @document.id)
+        -else
+          = link_to "New Version", new_document_version_path(:document_id => @document.id)
 
-    %hr.index-hr
-    .footer-nav
-      .glink
-        = link_to 'Edit Version', edit_document_path(@document)
-        = link_to 'Back to Dashboard', user_path(current_user.id)
-        = link_to 'Delete Version', archive_delete_path(current_user.id)
-    %br
-    %p
+      %hr.index-hr
+      .footer-nav
+        .glink
+          = link_to 'Edit Version', edit_document_path(@document)
+          = link_to 'Back to Dashboard', user_path(current_user.id)
+          = link_to 'Delete Version', archive_delete_path(current_user.id)
+      %br
+      %p
