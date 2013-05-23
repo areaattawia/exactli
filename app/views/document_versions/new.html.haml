@@ -1,7 +1,7 @@
 .form-container.clearfix
   .form-fields 
     %h1 
-      New Document Version for 
+      New Version 
       = Document.find_by_id(@document_id).document_name 
     = render 'form'
     = link_to 'Back', document_path(@document_id)
